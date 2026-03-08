@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   FONT FACES
+   ============================================ */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   DESIGN TOKENS — LIGHT MODE (Professional Navy + Amber)
+   ============================================ */
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Core */
+    --background: 0.97 0.005 250;
+    --foreground: 0.18 0.025 265;
+
+    /* Card / Popover */
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.025 265;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.025 265;
+
+    /* Primary — Deep Navy */
+    --primary: 0.28 0.08 265;
+    --primary-foreground: 0.985 0 0;
+
+    /* Secondary */
+    --secondary: 0.94 0.012 255;
+    --secondary-foreground: 0.28 0.08 265;
+
+    /* Muted */
+    --muted: 0.94 0.008 255;
+    --muted-foreground: 0.52 0.025 255;
+
+    /* Accent — Warm Amber */
+    --accent: 0.92 0.08 80;
+    --accent-foreground: 0.25 0.07 70;
+
+    /* Destructive */
+    --destructive: 0.58 0.22 25;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Border / Input */
+    --border: 0.88 0.015 255;
+    --input: 0.88 0.015 255;
+    --ring: 0.42 0.085 265;
+
+    /* Success / Warning */
+    --success: 0.54 0.18 145;
+    --success-foreground: 0.985 0 0;
+    --warning: 0.72 0.18 75;
+    --warning-foreground: 0.18 0.05 60;
+
+    /* Charts */
+    --chart-1: 0.45 0.12 265;
+    --chart-2: 0.54 0.18 145;
+    --chart-3: 0.72 0.18 75;
+    --chart-4: 0.58 0.22 25;
+    --chart-5: 0.6 0.15 310;
+
+    /* Sidebar */
+    --sidebar: 0.22 0.06 265;
+    --sidebar-foreground: 0.88 0.015 255;
+    --sidebar-primary: 0.72 0.15 75;
+    --sidebar-primary-foreground: 0.18 0.05 60;
+    --sidebar-accent: 0.30 0.07 265;
+    --sidebar-accent-foreground: 0.95 0.01 255;
+    --sidebar-border: 0.32 0.06 265;
+    --sidebar-ring: 0.50 0.1 265;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+}
+
+/* ============================================
+   CUSTOM UTILITY CLASSES
+   ============================================ */
+@layer utilities {
+  .sidebar-gradient {
+    background: linear-gradient(
+      180deg,
+      oklch(0.22 0.08 265) 0%,
+      oklch(0.18 0.06 270) 50%,
+      oklch(0.20 0.07 265) 100%
+    );
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .stat-card-accent {
+    border-left: 4px solid oklch(var(--accent));
+  }
+
+  .badge-success {
+    background: oklch(0.92 0.1 145);
+    color: oklch(0.35 0.15 145);
+  }
+
+  .badge-warning {
+    background: oklch(0.95 0.1 75);
+    color: oklch(0.45 0.15 60);
+  }
+
+  .badge-danger {
+    background: oklch(0.95 0.08 25);
+    color: oklch(0.45 0.18 25);
+  }
+
+  .badge-pending {
+    background: oklch(0.94 0.1 75);
+    color: oklch(0.42 0.14 70);
+  }
+
+  .badge-paid {
+    background: oklch(0.92 0.1 145);
+    color: oklch(0.35 0.15 145);
+  }
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.94 0.008 255);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.72 0.025 255);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.55 0.04 265);
+}
